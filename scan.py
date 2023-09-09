@@ -31,8 +31,7 @@ def parse_args():
     parser.add_argument('--disasm', type=str, required=False, default=default_path,
                         help='Path to the Escript <sourcetrail-disasm> which will read BEAM files')
 
-    args = parser.parse_args()
-    return args
+    return parser.parse_args()
 
 
 def main():
