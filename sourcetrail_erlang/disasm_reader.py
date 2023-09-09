@@ -26,7 +26,7 @@ class Scanner:
         self.source_path = disasm["source"]
 
         if not srctrl.open(db_file):
-            LOGGER.error("File open error: " + srctrl.getLastError())
+            LOGGER.error(f"File open error: {srctrl.getLastError()}")
             sys.exit(2)
 
         self.file_id = 0  # type: int
@@ -50,11 +50,11 @@ class Scanner:
     def commit(self):
         srctrl.commitTransaction()
         if len(srctrl.getLastError()) > 0:
-            LOGGER.error("Sourcetrail commit error: " + srctrl.getLastError())
+            LOGGER.error(f"Sourcetrail commit error: {srctrl.getLastError()}")
             sys.exit(3)
 
         if not srctrl.close():
-            LOGGER.error("Sourcetrail close error: " + srctrl.getLastError())
+            LOGGER.error(f"Sourcetrail close error: {srctrl.getLastError()}")
             sys.exit(4)
 
     def fail_with(self, msg: str):
